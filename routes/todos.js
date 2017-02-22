@@ -17,7 +17,8 @@ router.route('/todos')
     todo.name = req.body.name;
     todo.dueDate = req.body.dueDate;
     todo.description = req.body.description;
-
+    todo.priority = req.body.priority;
+    todo.completed = req.body.completed;
     todo.save(function(err, todo){
       if(err){
         res.send(err)
@@ -54,6 +55,8 @@ router.route('/todos/:todo_id')
         todo.name = req.body.name || todo.name;
         todo.dueDate = req.body.dueDate || todo.dueDate;
         todo.description = req.body.description || todo.description;
+        todo.priority = req.body.priority || todo.priority;
+        todo.completed = req.body.completed || todo.completed;
 
         todo.save(function(err){
           if(err){
